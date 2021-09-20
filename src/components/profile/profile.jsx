@@ -1,9 +1,14 @@
 import styles from "./profile.module.scss";
 
 const Profile = (props) => {
-  const { name, tag, location, avatar, stats } = props;
+  const { className, name, tag, location, avatar, stats } = props;
+
+  const profileClassName = className
+    ? `${className} ${styles.profile}`
+    : styles.profile;
+
   return (
-    <div className={styles.profile}>
+    <div className={profileClassName}>
       <div className={styles.description}>
         <img src={avatar} alt="Аватар пользователя" className={styles.avatar} />
         <p className={styles.name}>{name}</p>
