@@ -1,11 +1,10 @@
-import styles from "./profile.module.scss";
+import styles from './profile.module.scss';
+import PropTypes from 'prop-types';
 
-const Profile = (props) => {
+const Profile = props => {
   const { className, name, tag, location, avatar, stats } = props;
 
-  const profileClassName = className
-    ? `${className} ${styles.profile}`
-    : styles.profile;
+  const profileClassName = className ? `${className} ${styles.profile}` : styles.profile;
 
   return (
     <div className={profileClassName}>
@@ -33,4 +32,14 @@ const Profile = (props) => {
     </div>
   );
 };
+
+Profile.propTypes = {
+  className: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  stats: PropTypes.objectOf(PropTypes.number).isRequired,
+};
+
 export default Profile;
