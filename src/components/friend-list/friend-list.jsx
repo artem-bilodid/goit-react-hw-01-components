@@ -1,16 +1,16 @@
-import styles from './friend-list.module.scss';
+import s from './friend-list.module.scss';
 import PropTypes from 'prop-types';
 
 const FriendList = props => {
   const { className, friends } = props;
 
-  const friendListClassName = className ? `${className} ${styles.friendList}` : styles.friendList;
+  const friendListClassName = className ? `${className} ${s.friendList}` : s.friendList;
 
   const friendsItems = friends.map(({ avatar, name, isOnline, id }) => (
-    <li key={id} className={styles.item}>
-      <span className={isOnline ? styles.online : styles.offline}></span>
-      <img className={styles.avatar} src={avatar} alt={name} width="48" />
-      <p className={styles.name}>{name}</p>
+    <li key={id} className={s.item}>
+      <span className={isOnline ? s.online : s.offline}></span>
+      <img className={s.avatar} src={avatar} alt={name} width="48" />
+      <p className={s.name}>{name}</p>
     </li>
   ));
 

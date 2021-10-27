@@ -1,15 +1,13 @@
-import styles from './transactions.module.scss';
+import s from './transactions.module.scss';
 import PropTypes from 'prop-types';
 
 const Transactions = props => {
   const { className, transactions: items } = props;
 
-  const transactionsClassName = className
-    ? `${className} ${styles.transactions}`
-    : styles.transactions;
+  const transactionsClassName = className ? `${className} ${s.transactions}` : s.transactions;
 
   const transactions = items.map(({ id, type, amount, currency }) => (
-    <tr key={id} className={styles.tableBodyRow}>
+    <tr key={id} className={s.tableBodyRow}>
       <td>{type}</td>
       <td>{amount}</td>
       <td>{currency}</td>
@@ -19,7 +17,7 @@ const Transactions = props => {
   return (
     <table className={transactionsClassName}>
       <thead>
-        <tr className={styles.tableHeadRow}>
+        <tr className={s.tableHeadRow}>
           <th>Type</th>
           <th>Amount</th>
           <th>Currency</th>
