@@ -1,0 +1,10 @@
+.row {
+  height: 35px;
+
+  &:nth-child(2n) {
+    background-color: #fff;
+  }
+  &:nth-child(2n + 1) {
+    background-color: #ecf1f4;
+  }
+}

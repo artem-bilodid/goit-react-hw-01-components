@@ -1,16 +1,14 @@
 import s from './statistics.module.scss';
 import PropTypes from 'prop-types';
+import StatisticsItem from '../statistics-item';
 
 const Statistics = props => {
   const { className, title, stats } = props;
 
-  const statisticsClassName = className ? `${className} ${s.statistics}` : s.statistics;
+  const statisticsClassName = `${s.statistics} ${className}`.trim();
 
-  const statsItems = stats.map(item => (
-    <li key={item.id} className={s.item}>
-      <span className={s.label}>{item.label}</span>
-      <span className={s.percentage}>{item.percentage}%</span>
-    </li>
+  const statsItems = stats.map(({ id, label, percentage }) => (
+    <StatisticsItem key={id} label={label} percentage={percentage} />
   ));
 
   return (
@@ -24,13 +22,7 @@ const Statistics = props => {
 Statistics.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
+  stats: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Statistics;

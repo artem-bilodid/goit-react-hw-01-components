@@ -1,12 +1,12 @@
-import styles from "./app.module.scss";
-import user from "../../data/user.json";
-import statisticalData from "../../data/statistical-data.json";
-import friends from "../../data/friends.json";
-import transactions from "../../data/transactions.json";
-import Profile from "../profile";
-import Statistics from "../statistics";
-import FriendList from "../friend-list";
-import Transactions from "../transactions";
+import styles from './app.module.scss';
+import user from '../../data/user.json';
+import statisticalData from '../../data/statistical-data.json';
+import friends from '../../data/friends.json';
+import transactions from '../../data/transactions.json';
+import Profile from '../profile';
+import Statistics from '../statistics';
+import FriendList from '../friend-list';
+import TransactionsTable from '../transactions-table';
 
 function App() {
   return (
@@ -19,17 +19,10 @@ function App() {
         avatar={user.avatar}
         stats={user.stats}
       />
-      <Statistics
-        className={styles.statistics}
-        title="Upload stats"
-        stats={statisticalData}
-      />
+      <Statistics className={styles.statistics} title="Upload stats" stats={statisticalData} />
       <Statistics className={styles.statistics} stats={statisticalData} />
       <FriendList className={styles.friendList} friends={friends} />
-      <Transactions
-        className={styles.transactions}
-        transactions={transactions}
-      />
+      <TransactionsTable className={styles.transactions} transactions={transactions} />
     </div>
   );
 }
