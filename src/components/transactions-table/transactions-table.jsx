@@ -1,4 +1,4 @@
-import s from './transactions.module.scss';
+import s from './transactions-table.module.scss';
 import PropTypes from 'prop-types';
 import TransactionItem from '../transactions-item';
 
